@@ -23,9 +23,13 @@ SentencePiece work much better if use --split_by_whitespace=false, ignore whites
 ['▁Hà▁Nội', '▁vừa', '▁thông▁tin', '▁trường▁hợp', '▁mắc', '▁Covid']
 ```
 
-### Usage instruction
+### Train & Usage instruction
 ```bash
 python build_sentencepiece_vocab.py
+```
+
+```bash
+python roberta_vi_tokenizer.py
 ```
 
 * `--input`: one-sentence-per-line raw corpus file. No need to run tokenizer, normalizer or preprocessor. By default, SentencePiece normalizes the input with Unicode NFKC. You can pass a comma-separated list of files.
@@ -33,7 +37,7 @@ python build_sentencepiece_vocab.py
 * `--vocab_size`: vocabulary size, e.g., 8000, 16000, or 32000
 * `--character_coverage`: amount of characters covered by the model, good defaults are: 0.9995 for languages with rich character set like Japanese or Chinese and 1.0 for other languages with small character set.
 * ``--model_type`: model type. Choose from `unigram` (default), `bpe`, `char`, or `word`. The input sentence must be pretokenized when using `word` type.
-* `--user_defined_symbols`: always treated as one token in any context
+* `--user_defined_symbols`: always treated as one token in any context, --user_defined_symbols=<mask>,<pad>
 
 
 ## Resource:
